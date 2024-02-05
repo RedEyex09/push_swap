@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:09:04 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/05 12:34:16 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/05 13:42:28 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,44 @@ int	ft_pn(char c)
 	return (c == '+' || c == '-');
 }
 
-int ft_str_degit(char *s)
+int	ft_str_degit(char *s)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
+	if (ft_pn(s[i]) && s[i + 1] == '\0')
+		ft_exit(0);
 	while (s[i])
 	{
-		if(ft_isdigit(s[i]) || ft_pn(s[i]))
+		if (ft_isdigit(s[i]) || ft_pn(s[i]))
 		{
-			if(ft_pn(s[i + 1]))
+			if (ft_pn(s[i + 1]))
 				return (0);
 			i++;
 		}
 		else
 			return (0);
 	}
-	return(1);
+	return (1);
 }
 /* this function check the content of
  all argument while looping on every argument*/
+
+void ft_check_3(t_arg_chek *arg)
+{
+	while (arg->num[arg->i][arg->l])
+	{
+		if (ft_isdigit(arg->num[arg->i][arg->l])
+			|| ft_pn(arg->num[arg->i][arg->l]))
+		{
+			if (ft_pn(arg->num[arg->i][arg->l + 1]))
+					ft_exit(0);
+		}
+		else
+			ft_exit(0);
+		arg->l++;
+	}
+}
 void	ft_check_2(t_arg_chek *arg, int a)
 {
 	arg->i = 0;
@@ -85,19 +105,8 @@ void	ft_check_2(t_arg_chek *arg, int a)
 		arg->l = 0;
 		if (a == 0)
 		{
-			while (arg->num[arg->i][arg->l])
-			{
-				if (ft_isdigit(arg->num[arg->i][arg->l])
-					|| ft_pn(arg->num[arg->i][arg->l]))
-				{
-					if (ft_pn(arg->num[arg->i][arg->l + 1]))
-						ft_exit(0);
-				}
-				else
-					ft_exit(0);
-				arg->l++;
+			ft_check_3(arg);
 			k = ft_atoi(arg->num[arg->i]);
-			}
 		}
 		else if (ft_str_degit(arg->num[arg->i]))
 			k = ft_atoi(arg->num[arg->i]);
