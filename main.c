@@ -6,12 +6,11 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:09:04 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/09 19:27:17 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/09 21:31:11 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void content(t_arg_chek *num, t_list **head)
 {
@@ -37,9 +36,11 @@ void content(t_arg_chek *num, t_list **head)
 			}
 		}
 		k = ft_atoi(num->n[num->j]);
-		if(duplicate(k, *head))
+		if(duplicate(k, *head) || (num->l == 11 && k != INT_MIN)
+		|| k > INT_MAX || k < INT_MIN)
 		{
-			ft_printf("Duplicate number: %d\n", k);
+		ft_printf("k = %d\n", k);
+			ft_printf("Duplicate number or above max number\n");
             ft_exit();
 		}
 		add_num(head, k);
@@ -73,13 +74,13 @@ void	parsing(char **av)
 		ft_lstclear(&head);	
 	
 }
-void f(void)
-{
-	system("leaks push_swap");
-}
+// void f(void)
+// {
+// 	system("leaks push_swap");
+// }
 int main(int ac, char **av)
 {
-	atexit(f);
+	// atexit(f);
 	if (ac >= 2)
 	{
 		parsing(av);
