@@ -12,13 +12,9 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
        ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
        ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-SRCSB = ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
-	ft_lstsize_bonus.c ft_lstlast_bonus.c \
-	ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-	ft_lstclear_bonus.c\
+
 
 OBJS = ${SRCS:.c=.o}
-OBJSB = ${SRCSB:.c=.o}
 LIBC = ar rc
 RM = rm -f
 
@@ -30,15 +26,14 @@ ${NAME}: ${OBJS}
 
 all: ${NAME}
 
-bonus: ${NAME} ${OBJSB}
-	${LIBC} ${NAME} ${OBJSB}
+
 	
 clean:
-	${RM} ${OBJS} ${OBJSB}
+	${RM} ${OBJS} 
 
 fclean: clean
 	${RM} ${NAME} 
 
 re: fclean all
 
-.PHONY : all clean bonus fclean re
+.PHONY : all clean fclean re
