@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:45:10 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/08 15:41:42 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/09 19:25:24 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_lstdelone(t_list *lst)
 	if (!lst)
 		return ;
 	free(lst);
-	lst = NULL;
+	// lst = NULL;
 }
 
 void    ft_lstclear(t_list **lst)
@@ -82,7 +82,7 @@ void    ft_lstclear(t_list **lst)
                 ft_lstdelone(*lst);
                 *lst = tmp;
         }
-        free(*lst);
+        // free(*lst);
          *lst = NULL;
 }
 int     ft_lstsize(t_list *lst)

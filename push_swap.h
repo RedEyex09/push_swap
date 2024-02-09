@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:35:17 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/08 11:23:10 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/09 19:11:04 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,8 @@ void	*ft_free_double(char **str);
 void	ft_exit(void);
 int		ft_pn(char c);
 void	ft_str_pn(char *s);
+void add_num(t_list **head, int n);
+int duplicate(int n, t_list *head);
+void empty(t_arg_chek *num, char **av);
 
 #endif
