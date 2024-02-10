@@ -1,57 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   linked2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 10:39:23 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/10 09:17:07 by hel-magh         ###   ########.fr       */
+/*   Created: 2024/02/10 09:22:32 by hel-magh          #+#    #+#             */
+/*   Updated: 2024/02/10 09:26:40 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free(char *str)
+void	ft_lstclear(t_list **lst)
 {
-	if (str != NULL)
+	t_list	*tmp;
+
+	if (lst == NULL)
+		return ;
+	while (*lst)
 	{
-		free(str);
-		str = NULL;
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst);
+		*lst = tmp;
 	}
+	free(*lst);
+	*lst = NULL;
 }
 
-void	*ft_free_double(char **str)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	i;
+	int	size;
 
-	i = 0;
-	while (str[i])
+	size = 0;
+	if (lst == NULL)
+		return (0);
+	while (lst)
 	{
-		free(str[i]);
-		i++;
+		lst = lst->next;
+		size++;
 	}
-	free(str);
-	return (NULL);
-}
-
-void	ft_exit(void)
-{
-	ft_printf("Error\n");
-	exit(0);
-}
-
-int	ft_pn(char c)
-{
-	return (c == '+' || c == '-');
-}
-
-void	ft_str_pn(char *s)
-{
-	int	i;
-
-	i = 0;
-	if (ft_pn(s[i]) && (s[i + 1] == '\0'
-			|| ft_pn(s[i + 1])))
-		ft_exit();
+	return (size);
 }

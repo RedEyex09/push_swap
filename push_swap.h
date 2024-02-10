@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:35:17 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/09 19:33:47 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/10 09:18:47 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct arg_chek
 {
 	int		i;
 	int		j;
-	int 	l;
+	int		l;
 	char	**n;
 }	t_arg_chek;
 
@@ -38,7 +38,7 @@ t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst);
-void    ft_lstclear(t_list **lst);
+void	ft_lstclear(t_list **lst);
 void	ft_free(char *str);
 void	*ft_free_double(char **str);
 void	ft_exit(void);
@@ -47,5 +47,6 @@ void	ft_str_pn(char *s);
 void	add_num(t_list **head, int n);
 int		duplicate(int n, t_list *head);
 void	empty(t_arg_chek *num, char **av);
+int		max_check(int i, long long k);
 
 #endif
