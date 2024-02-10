@@ -6,16 +6,17 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:09:04 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/10 09:28:22 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/10 14:57:47 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <libc.h>
 
 void	content(t_arg_chek *num, t_list **head)
 {
 	long long	k;
-
+	
 	k = 0;
 	while (num->n[num->j])
 	{
@@ -35,9 +36,9 @@ void	content(t_arg_chek *num, t_list **head)
 		if (duplicate(k, *head) || max_check(num->l, k))
 			ft_exit();
 		add_num(head, k);
-		ft_printf("%d\n", k);
 		num->j++;
 	}
+	
 }
 
 void	parsing(char **av)
@@ -60,6 +61,11 @@ void	parsing(char **av)
 		content(&num, &head);
 		num.i++;
 		ft_free_double(num.n);
+	}
+	while (head)
+	{
+		printf("%d\n", head->content);
+		head = head->next;
 	}
 	ft_lstclear(&head);
 }

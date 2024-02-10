@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:13:58 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/10 09:16:11 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/10 14:57:12 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	add_num(t_list **head, int n)
 	t_list	*new_node;
 
 	new_node = ft_lstnew(n);
-	ft_lstadd_front(head, new_node);
+	ft_lstadd_back(head, new_node);
 }
 
 int	duplicate(int n, t_list *head)
@@ -49,10 +49,7 @@ void	empty(t_arg_chek *num, char **av)
 			num->j++;
 		}
 		if (av[num->i][num->j] == '\0')
-		{
-			ft_printf("Empty String\n");
 			ft_exit();
-		}
 		num->i++;
 	}
 }
