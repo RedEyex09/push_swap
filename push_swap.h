@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:35:17 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/13 12:26:25 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:29:23 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,14 @@ void	stacks(t_list **a, t_list **b);
 void	push(t_list **a, t_list **b);
 void	pa(t_list **a, t_list **b);
 void	pb(t_list **a, t_list **b);
+void	ss(t_list **a, t_list **b);
+void	sb(t_list **b, int i);
+void	sa(t_list **a, int i);
+void	rr(t_list **a, t_list **b);
+void 	rb(t_list **b, int i);
+void	ra(t_list **a, int i);
+void	rra(t_list **a, int i);
+void	rrb(t_list **b, int i);
+void	rrr(t_list **a, t_list **b);
 
 #endif
