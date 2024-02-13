@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:35:17 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/10 10:48:59 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:26:25 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
+	struct s_list	*prev;
 }	t_list;
 
 t_list	*ft_lstnew(int content);
@@ -48,5 +49,9 @@ void	add_num(t_list **head, int n);
 int		duplicate(int n, t_list *head);
 void	empty(t_arg_chek *num, char **av);
 int		max_check(int i, long long k);
+void	stacks(t_list **a, t_list **b);
+void	push(t_list **a, t_list **b);
+void	pa(t_list **a, t_list **b);
+void	pb(t_list **a, t_list **b);
 
 #endif

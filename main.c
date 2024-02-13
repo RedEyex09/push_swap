@@ -6,17 +6,16 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:09:04 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/10 14:57:47 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:13:39 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <libc.h>
 
 void	content(t_arg_chek *num, t_list **head)
 {
 	long long	k;
-	
+
 	k = 0;
 	while (num->n[num->j])
 	{
@@ -41,12 +40,15 @@ void	content(t_arg_chek *num, t_list **head)
 	
 }
 
-void	parsing(char **av)
+void	parsing(char **av, t_list **a)
 {
 	t_arg_chek	num;
-	t_list		*head;
-
-	head = NULL;
+	// t_list		*a;
+	// t_list		*b;
+	
+	// a = NULL;
+	// b = NULL;
+	// ft_memset(&b, 0, sizeof(b));
 	empty(&num, av);
 	num.i = 1;
 	while (av[num.i])
@@ -54,26 +56,29 @@ void	parsing(char **av)
 		num.j = 0;
 		num.n = ft_split(av[num.i], ' ');
 		if (!num.n)
-		{
-			ft_printf("problem in split\n");
 			ft_exit();
-		}
-		content(&num, &head);
+		content(&num, a);
 		num.i++;
 		ft_free_double(num.n);
 	}
-	while (head)
-	{
-		printf("%d\n", head->content);
-		head = head->next;
-	}
-	ft_lstclear(&head);
 }
-
+// void f(void)
+// {
+// 	system("leaks push_swap");
+// }
 int	main(int ac, char **av)
 {
+	t_list *a;
+	t_list *b;
+	
+	a = NULL;
+	b = NULL;
+	// atexit(f);
 	if (ac >= 2)
 	{
-		parsing(av);
+		parsing(av, &a);
+		stacks(&a, &b);
+		ft_lstclear(&a);
+		ft_lstclear(&b);
 	}
 }

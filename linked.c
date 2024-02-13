@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:45:10 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/10 12:14:38 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/13 11:51:24 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,19 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		return ;
 	}
 	temp = ft_lstlast(*lst);
+	new->prev = temp;
 	temp->next = new;
+	new->next = NULL;
 }
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	
 	if (lst == NULL || new == NULL)
 		return ;
 	new -> next = *lst;
 	*lst = new;
+	
 }
 
 t_list	*ft_lstnew(int content)
@@ -47,6 +51,7 @@ t_list	*ft_lstnew(int content)
 	}
 	elem -> content = content;
 	elem -> next = NULL;
+	elem->prev = NULL;
 	return (elem);
 }
 
