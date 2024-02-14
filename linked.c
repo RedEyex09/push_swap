@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:45:10 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/13 15:54:58 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/14 10:51:07 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,10 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	
 	if (lst == NULL || new == NULL)
 		return ;
 	new -> next = *lst;
 	*lst = new;
-	
 }
 
 t_list	*ft_lstnew(int content)
@@ -45,10 +43,7 @@ t_list	*ft_lstnew(int content)
 
 	elem = malloc(sizeof(t_list));
 	if (!elem)
-	{
-		ft_printf("Memory allocation error\n");
 		ft_exit();
-	}
 	elem -> content = content;
 	elem -> next = NULL;
 	elem->prev = NULL;
