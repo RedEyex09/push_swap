@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:07:18 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/14 10:40:05 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:23:17 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,17 @@ void	ft_switch(t_list **stack)
 
 void	sa(t_list **a, int i)
 {
-	if (*a)
+	if (*a && (*a)->next != NULL)
 		ft_switch(a);
-	if (i == 1)
+	if (i == 1 && (*a)->next != NULL)
 		ft_printf("sa\n");
 }
 
 void	sb(t_list **b, int i)
 {
-	if (*b)
+	if (*b && (*b)->next != NULL)
 		ft_switch(b);
-	if (i == 1)
+	if (i == 1 && (*b)->next != NULL)
 		ft_printf("sb\n");
 }
 
