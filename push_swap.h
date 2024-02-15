@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:35:17 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/15 11:06:53 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/15 12:05:59 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct arg_chek
 typedef struct s_list
 {
 	int				content;
+	int				index;
+	int 			median;
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
