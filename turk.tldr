@@ -66,9 +66,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 781.9788801484852,
-			"y": 890.4107711181434,
-			"lastActivityTimestamp": 1707985219669,
+			"x": 207.6412994477704,
+			"y": 5928.047642258844,
+			"lastActivityTimestamp": 1708157667730,
 			"meta": {}
 		},
 		{
@@ -79,9 +79,9 @@
 			"typeName": "page"
 		},
 		{
-			"x": -484.56757703609975,
-			"y": -369.7800854352618,
-			"z": 1.0519592218391791,
+			"x": 115.57412305926668,
+			"y": -5372.894953938187,
+			"z": 0.662894767947947,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
@@ -120,8 +120,8 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1212.5,
-				"h": 894.1666259765625
+				"w": 1075,
+				"h": 795
 			},
 			"zoomBrush": null,
 			"isGridMode": false,
@@ -141,7 +141,7 @@
 			"currentPageId": "page:page",
 			"insets": [
 				false,
-				true,
+				false,
 				true,
 				false
 			],
@@ -4361,7 +4361,7 @@
 			"typeName": "shape"
 		},
 		{
-			"x": 138.94918041174884,
+			"x": 138.94918041174878,
 			"y": 5828.93157140322,
 			"rotation": 0,
 			"isLocked": false,
@@ -4371,8 +4371,8 @@
 			"props": {
 				"color": "black",
 				"size": "m",
-				"w": 873.046875,
-				"text": "if there is none , we simply set the target of b is the min node from a",
+				"w": 873.0442504882812,
+				"text": "\nif there is none , we simply set the target of b is the min node from a",
 				"font": "draw",
 				"align": "middle",
 				"autoSize": true,

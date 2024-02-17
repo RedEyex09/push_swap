@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 10:38:46 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/15 12:25:27 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/17 09:57:26 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void printer(t_list **t, int s, int i)
 {
     t_list *lst;
     if (i == 0)
-    {lst = NULL;
+    {
+    lst = NULL;
     lst = *t;
     if (s == 'a')
     {
@@ -51,7 +52,7 @@ void printer(t_list **t, int s, int i)
     {
         while (lst)
         {
-            ft_printf("stack b -> %d index -> %d median -> %d\n", lst->content, lst->index, lst->median);
+            ft_printf("stack b -> %d index -> %d median ->  %d Target -> %d\n", lst->content, lst->index, lst->median, lst->target);
             lst = lst->next;
         }
     }
@@ -139,6 +140,33 @@ void indexing(t_list **a, t_list **b)
     
     
 }
+void get_target(t_list **a, t_list **b)
+{
+    t_list *stack_a;
+    t_list *stack_b;
+    int     tmp;
+    int diff;
+    
+    diff = 0;
+    stack_b = *b;  
+    while(stack_b)
+    {
+        tmp = INT_MAX;
+        stack_a = *a;
+        while(stack_a)
+        {
+            diff = stack_a->content - stack_b->content;
+            if (stack_a->content > stack_b->content && diff < tmp)
+            {
+                tmp = diff;
+                stack_b->target = stack_a->index;
+            }
+            stack_a = stack_a->next;
+        }
+        stack_b = stack_b->next;
+    }
+}
+
 void stacks(t_list **a, t_list **b)
 {
     int mid_av;
@@ -160,16 +188,10 @@ void stacks(t_list **a, t_list **b)
     {
         sort_three(a);
         indexing(a, b);
-        
+        get_target(a, b);
     }
     printer(a, 'a', 1);
     printer(b, 'b', 1);
-    ft_printf("mid av -> %d\nsize -> %d\n", mid_av, ft_lstsize(*a));
+    // ft_printf("mid av -> %d\nsize -> %d\n", mid_av, ft_lstsize(*a));
 
-    
-
-     
-
-    
-    
 }
