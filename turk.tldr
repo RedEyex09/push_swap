@@ -66,9 +66,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 207.6412994477704,
-			"y": 5928.047642258844,
-			"lastActivityTimestamp": 1708157667730,
+			"x": 511.43913709811494,
+			"y": 7196.235952965622,
+			"lastActivityTimestamp": 1708167353098,
 			"meta": {}
 		},
 		{
@@ -79,8 +79,8 @@
 			"typeName": "page"
 		},
 		{
-			"x": 115.57412305926668,
-			"y": -5372.894953938187,
+			"x": 70.46647771628642,
+			"y": -6741.229957543911,
 			"z": 0.662894767947947,
 			"meta": {},
 			"id": "camera:page:page",
@@ -120,8 +120,8 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1075,
-				"h": 795
+				"w": 1070.833251953125,
+				"h": 735.8333129882812
 			},
 			"zoomBrush": null,
 			"isGridMode": false,
@@ -141,7 +141,7 @@
 			"currentPageId": "page:page",
 			"insets": [
 				false,
-				false,
+				true,
 				true,
 				false
 			],
@@ -13202,6 +13202,29 @@
 			"parentId": "page:page",
 			"index": "b83",
 			"id": "shape:sKkUD_PBaxNwgjQplo1Iv",
+			"typeName": "shape"
+		},
+		{
+			"x": 1386.442782232264,
+			"y": 6989.446146608134,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:VZeCgEBhM61C1I4fjZe3o",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "xl",
+				"w": 933.5,
+				"text": "-ila kan fo9e median\n index dyalo how cost dyaleo\n\n-ila kan ta7et median cost dyalo\n howa size dyal stack na9iss index dyalo",
+				"font": "draw",
+				"align": "middle",
+				"autoSize": true,
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "b84",
 			"typeName": "shape"
 		}
 	]

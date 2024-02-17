@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 10:38:46 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/17 09:57:26 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/17 12:34:21 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void printer(t_list **t, int s, int i)
     {
         while (lst)
         {
-            ft_printf("stack a -> %d index -> %d median -> %d\n", lst->content, lst->index, lst->median);
+            ft_printf("stack a -> %d index ->  %d cost -> %d\n", lst->content, lst->index, lst->median, lst->cost);
             lst = lst->next;
         }
     }
@@ -52,7 +52,7 @@ void printer(t_list **t, int s, int i)
     {
         while (lst)
         {
-            ft_printf("stack b -> %d index -> %d median ->  %d Target -> %d\n", lst->content, lst->index, lst->median, lst->target);
+            ft_printf("stack b -> %d index -> %d median ->  %d Target -> %d cost -> %d\n", lst->content, lst->index, lst->median, lst->target, lst->cost);
             lst = lst->next;
         }
     }
@@ -140,6 +140,43 @@ void indexing(t_list **a, t_list **b)
     
     
 }
+int cost(t_list **a,int target)
+{
+     t_list *stack_a;
+
+    stack_a = *a;
+     while(stack_a)
+     {
+        if(stack_a->index == target)
+            return(stack_a->cost);
+        stack_a = stack_a->next;
+     }
+     return(0);
+}
+void get_cost(t_list **a, t_list **b)
+{
+    t_list *stack_a;
+    t_list *stack_b;
+    
+    stack_a = *a;  
+    while(stack_a)
+    {
+        if (stack_a->median == 1)
+            stack_a->cost = stack_a->index;
+        else
+            stack_a->cost = ft_lstsize(*a) - stack_a->index;
+        stack_a = stack_a->next;
+    }
+    stack_b = *b;  
+    while(stack_b)
+    {
+        if (stack_b->median == 1)
+            stack_b->cost = stack_b->index + cost(a, stack_b->target);
+        else
+            stack_b->cost = ft_lstsize(*b) - stack_b->index + cost(a, stack_b->target);
+        stack_b = stack_b->next;
+    }
+}
 void get_target(t_list **a, t_list **b)
 {
     t_list *stack_a;
@@ -165,6 +202,7 @@ void get_target(t_list **a, t_list **b)
         }
         stack_b = stack_b->next;
     }
+    get_cost(a, b);
 }
 
 void stacks(t_list **a, t_list **b)
