@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 10:38:46 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/17 12:34:21 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/18 12:43:44 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,11 +205,114 @@ void get_target(t_list **a, t_list **b)
     get_cost(a, b);
 }
 
+int low_cost_index(t_list **b)
+{
+    t_list *stack_b;
+
+    int tmp = 0;
+    int cost = 1;
+    stack_b = *b; 
+    while(stack_b)
+    {
+        if (stack_b->cost <= cost && tmp >= stack_b->index)
+        {
+            tmp = stack_b->index;
+            cost = stack_b->cost;
+        }
+        stack_b = stack_b->next; 
+    }
+    return(tmp);
+}
+void sortingt_list(t_list**a, t_list **b)
+{
+    t_list *stack_a;
+    t_list *stack_b;
+    int     tmp_index;
+    int     i = 0;
+    
+    stack_a = *a;
+    stack_b = *b;
+    tmp_index = low_cost_index(b);
+    while (stack_b && tmp_index > i )
+    {
+        stack_b = stack_b -> next;
+        i++;
+    }
+    while(stack_a)
+    {
+        if(stack_b -> target == stack_a->index)
+          {      
+           if (stack_a->median == 0)
+           {
+                rra(a, 1);
+           }
+           else if (stack_a->median == 1)
+           {
+                ra(a, 1);
+           }
+                
+           if(stack_a->prev == NULL)
+            {
+                ft_printf("GOOOD FOR A\n");
+                break ;
+            }
+           
+          } 
+        ft_printf("show 1\n");
+        stack_a = stack_a->next;
+    }
+    stack_b = *b;
+    while (stack_b)
+    {
+         if(tmp_index == stack_b->index)
+          {      
+           if (stack_b->median == 0)
+           {
+                rrb(a, 1);
+           }
+           else if (stack_b->median == 1 && tmp_index != 0)
+           {
+                rb(a, 1);
+           }
+           if(stack_b->prev == NULL)
+            {
+                pa(a, b);
+                ft_printf("GOOOD FOR B\n");
+            }
+           
+          } 
+
+        stack_b = stack_b->next;
+    }
+    
+    
+    // ft_printf("My value %d my target %d My index %d My cost %d\n", stack_b->content, stack_b->target, tmp_index, stack_b->cost );
+    
+}
+int is_sorted(t_list **a)
+{
+    t_list *stack_a;
+
+    stack_a = *a;
+
+    while (stack_a)
+    {
+        if(stack_a->content <= stack_a->next->content)
+            stack_a = stack_a->next;
+        else
+            return(1);
+    }
+    return(0);
+    
+}
 void stacks(t_list **a, t_list **b)
 {
     int mid_av;
     
-    printer(a, 'a', 0);
+    // printer(a, 'a', 0);
+        
+    // while(is_sorted(a))
+    // {
     mid_av = min_max(a);
     while(ft_lstsize(*a) > 3)
     {
@@ -228,8 +331,15 @@ void stacks(t_list **a, t_list **b)
         indexing(a, b);
         get_target(a, b);
     }
+    // printer(a, 'a', 1);
+    // printer(b, 'b', 1);
+    // ft_printf("mid av -> %d\nsize -> %d\n", mid_av, ft_lstsize(*a));
+    sortingt_list(a, b);
     printer(a, 'a', 1);
     printer(b, 'b', 1);
-    // ft_printf("mid av -> %d\nsize -> %d\n", mid_av, ft_lstsize(*a));
+    indexing(a, b);
 
+    printer(a, 'a', 1);
+    printer(b, 'b', 1);
+    // }
 }

@@ -66,9 +66,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 511.43913709811494,
-			"y": 7196.235952965622,
-			"lastActivityTimestamp": 1708167353098,
+			"x": 615.3291510289134,
+			"y": 8403.045652952675,
+			"lastActivityTimestamp": 1708252042541,
 			"meta": {}
 		},
 		{
@@ -79,9 +79,9 @@
 			"typeName": "page"
 		},
 		{
-			"x": 70.46647771628642,
-			"y": -6741.229957543911,
-			"z": 0.662894767947947,
+			"x": 53.29463824074972,
+			"y": -7502.99862291352,
+			"z": 0.521934531553939,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
@@ -120,8 +120,8 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1070.833251953125,
-				"h": 735.8333129882812
+				"w": 960.8333129882812,
+				"h": 760.8333129882812
 			},
 			"zoomBrush": null,
 			"isGridMode": false,
@@ -7218,8 +7218,8 @@
 			"typeName": "shape"
 		},
 		{
-			"x": 197.43241365273684,
-			"y": 7485.7125288894795,
+			"x": 198.77316271959614,
+			"y": 8271.690053519924,
 			"rotation": 0,
 			"isLocked": false,
 			"opacity": 1,
@@ -13211,7 +13211,6 @@
 			"isLocked": false,
 			"opacity": 1,
 			"meta": {},
-			"id": "shape:VZeCgEBhM61C1I4fjZe3o",
 			"type": "text",
 			"props": {
 				"color": "black",
@@ -13225,6 +13224,7 @@
 			},
 			"parentId": "page:page",
 			"index": "b84",
+			"id": "shape:VZeCgEBhM61C1I4fjZe3o",
 			"typeName": "shape"
 		}
 	]
