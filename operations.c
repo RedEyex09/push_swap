@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 10:38:46 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/18 20:11:52 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/18 22:34:56 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ int min_max(t_list **a, int i)
         if(!min || min > mm->content)
         {
             min = mm->content;
-            min_re = mm->index; 
+            min_re = mm->content; 
         }
         if (!max || max < mm->content)
         {
             max = mm->content;
-            max_re = mm->index; 
+            max_re = mm->content; 
         }
         mm = mm->next;
     }
@@ -197,26 +197,21 @@ void get_target(t_list **a, t_list **b)
 {
     t_list *stack_a;
     t_list *stack_b;
-    int     tmp;
-    int diff;
-    
-    diff = 0;
     stack_b = *b;  
     while(stack_b)
     {
-        tmp = min_max(a, 2);
+        stack_b->target = min_max(a, 2);
         stack_a = *a;
         while(stack_a)
         {
-            diff = stack_a->content - stack_b->content;
             if (stack_b->content > min_max(a, 2))
             {
                 stack_b->target = min_max(a, 3);
+                break;
             }
-            else if (stack_a->content > stack_b->content && diff < tmp)
+            else if (stack_a->content > stack_b->content && stack_a->content < stack_b->target)
             {
-                tmp = diff;
-                stack_b->target = stack_a->index;
+                stack_b->target = stack_a->content;
             }
             stack_a = stack_a->next;
         }
@@ -230,14 +225,16 @@ int low_cost_index(t_list **b)
     t_list *stack_b;
 
     int tmp = 0;
-    int cost = 1;
+    int cost = 0;
     int i =0;
     stack_b = *b; 
+    cost = stack_b->cost;
+    tmp = stack_b->content;
     while(stack_b)
     {
-        if (stack_b->cost <= cost && tmp >= stack_b->index)
+        if (stack_b->cost < cost)
         {
-            tmp = stack_b->index;
+            tmp = stack_b->content;
             cost = stack_b->cost;
         }
         stack_b = stack_b->next; 
@@ -257,42 +254,35 @@ void sortingt_list(t_list**a, t_list **b)
     stack_a = *a;
     stack_b = *b;
     tmp_index = low_cost_index(b);
-    while (stack_b && tmp_index > i )
+    while (stack_b && stack_b->content != tmp_index && stack_b->next)
     {
-        stack_b = stack_b -> next;
+        stack_b = stack_b->next;
         i++;
     }
     while(stack_a)
     {
-        if(stack_b -> target == stack_a->index)
-          {      
+        if(stack_b->target == stack_a->content)
+        {      
            if (stack_a->median == 0)
            {
-                while (*a != stack_a)
+                while ((*a)->content != stack_b->target)
                     rra(a, 1);
            }
            else if (stack_a->median == 1)
            {
-                while (*a != stack_a)
+                while ((*a)->content != stack_b->target)
                 {
                     ra(a, 1);
                 }
            }
-                
-        //    if(stack_a->prev == NULL)
-        //     {
-        //         // ft_printf("GOOOD FOR A\n");
-        //         break ;
-        //     }
-           
-          } 
-        // ft_printf("show 1\n");
+           break;
+        } 
         stack_a = stack_a->next;
     }
     stack_b = *b;
     while (stack_b)
     {
-         if(tmp_index == stack_b->index)
+         if(tmp_index == stack_b->content)
           {      
            if (stack_b->median == 0)
            {
@@ -304,21 +294,12 @@ void sortingt_list(t_list**a, t_list **b)
               while(*b != stack_b)
                  rb(a, 1);
            }
-        //    if(stack_b->prev == NULL)
-        //     {
-        //         // ft_printf("GOOOD FOR B\n");
-        //         break ;
-        //     }
-           
           } 
 
         stack_b = stack_b->next;
     }
     pa(a, b);
-    
-    
-    // ft_printf("My value %d my target %d My index %d My cost %d\n", stack_b->content, stack_b->target, tmp_index, stack_b->cost );
-    
+        
 }
 int is_sorted(t_list **a)
 {
@@ -341,14 +322,11 @@ void stacks(t_list **a, t_list **b)
     int mid_av;
     t_list *tmp;
     
-    // printer(a, 'a', 0);
-    //     printer(b, 'b', 0);
-    // while(is_sorted(a))
-    // {
+    if(is_sorted(a))
+        exit(0);
     tmp = NULL;
     mid_av = min_max(a, 0);
-    // ft_printf("mid av : %d\n", mid_av);
-    while(ft_lstsize(*a) > 3)
+    while(ft_lstsize(*a) > 3 && !is_sorted(a))
     {
         if ((*a)->content < mid_av)
             pb(a,b);
@@ -357,50 +335,38 @@ void stacks(t_list **a, t_list **b)
             pb(a,b);
             rb(b, 1);
         }
-        
     }
- 
-
     if (ft_lstsize(*a) == 3)
     {
         sort_three(a);
         indexing(a, b);
         get_target(a, b);
     }
-    //  printer(a, 'a', 1);
-    //  printer(b, 'b', 1);
-    // ft_printf("mid av -> %d\nsize -> %d\n", mid_av, ft_lstsize(*a));
     while(ft_lstsize(*b) != 0)
     {
         
-        // printer(a, 'a', 1);
-        // printer(b, 'b', 1);
         indexing(a, b);
         get_target(a, b);
         sortingt_list(a, b);
-        // ft_printf("%d", ft_lstsize(*b));
-        
+     
     }
-    indexing(a, b);
-    // printer(a, 'a', 1);
-    // printer(b, 'b', 1);
-        // indexing(a, b);
-    while (*a != tmp)
+    if(ft_lstsize(*a) != 3)
     {
-        tmp = *a;
-     while (tmp->content != min_max(a, 1))
-     {
-         tmp = tmp->next;
-     }
-        if(is_sorted(a))
-            break;
-       if(tmp->median == 1)
-            ra(a, 1);
-        else if(tmp->median == 0)
-            rra(a, 1);
         indexing(a, b);
+        tmp = *a;
+         while (tmp->content != min_max(a, 1))
+         {
+             tmp = tmp->next;
+         }
+        while (*a != tmp)
+        {
+           if(tmp->median == 1)
+                ra(a, 1);
+            else if(tmp->median == 0)
+                rra(a, 1); 
+        }
     }
-        printer(a, 'a', 1);
-        printer(b, 'b', 1);
+        // printer(a, 'a', 1);
+        // printer(b, 'b', 1);
 }
 
