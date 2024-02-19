@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:09:04 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/19 08:55:07 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:41:24 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,7 @@ void	content(t_arg_chek *num, t_list **head)
 void	parsing(char **av, t_list **a)
 {
 	t_arg_chek	num;
-	// t_list		*a;
-	// t_list		*b;
-	
-	// a = NULL;
-	// b = NULL;
-	// ft_memset(&b, 0, sizeof(b));
+
 	empty(&num, av);
 	num.i = 1;
 	while (av[num.i])
