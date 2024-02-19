@@ -192,16 +192,19 @@ void get_target(t_list **a, t_list **b)
 {
     t_list *stack_a;
     t_list *stack_b;
+    int min = min_max(a, 1);
+    int max = min_max(a, 2);
+
     stack_b = *b;  
     while(stack_b)
     {
-        stack_b->target = min_max(a, 2);
+        stack_b->target = max;
         stack_a = *a;
         while(stack_a)
         {
-            if (stack_b->content > min_max(a, 2))
+            if (stack_b->content >max)
             {
-                stack_b->target = min_max(a, 3);
+                stack_b->target = min;
                 break;
             }
             else if (stack_a->content > stack_b->content && stack_a->content < stack_b->target)
@@ -248,7 +251,7 @@ void sortingt_list(t_list**a, t_list **b)
     t_list *stack_a;
     t_list *stack_b;
     int     tmp_index;
-    int     i = 0;
+
     
     stack_a = *a;
     stack_b = *b;
@@ -398,10 +401,3 @@ void stacks(t_list **a, t_list **b)
         // printer(a, 'a', 1);
         // printer(b, 'b', 1);
 }
-
-
-
-
-
-
-
