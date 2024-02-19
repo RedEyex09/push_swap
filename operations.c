@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 10:38:46 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/19 10:43:52 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:32:27 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void printer(t_list **t, int s, int i)
     {
         while (lst)
         {
-            ft_printf("stack a -> %d index ->  %d cost -> %d median ->%d\n", lst->content, lst->index, lst->cost, lst->median);
+            ft_printf("stack a -> %d index ->  %d cost -> %d median ->%d index_value : %d\n", lst->content, lst->index, lst->cost, lst->median, lst->index_value);
             lst = lst->next;
         }
     }
@@ -91,7 +91,7 @@ int min_max(t_list **a, int i)
         return(min_re);
     if (i == 4)
         return(max_re);
-    return((max) / 2);
+    return((min + max)/ 2);
 }
 void sort_three(t_list **lst)
 {
@@ -214,6 +214,9 @@ void get_target(t_list **a, t_list **b)
     }
     indexing(a, b);
     get_cost(a, b);
+    // printer(a, 'a', 1);
+    // printer(b, 'b', 1);
+    // exit(0);
 }
 
 int low_cost_index(t_list **b)
@@ -222,10 +225,10 @@ int low_cost_index(t_list **b)
 
     int tmp = 0;
     int cost = 0;
-    int i =0;
     stack_b = *b; 
     cost = stack_b->cost;
     tmp = stack_b->content;
+    // tmp = min_max(b, 2);
     while(stack_b)
     {
         if (stack_b->cost < cost)
@@ -233,11 +236,11 @@ int low_cost_index(t_list **b)
             tmp = stack_b->content;
             cost = stack_b->cost;
         }
-        stack_b = stack_b->next; 
-        i++;
+        // ft_printf("stack_b content %d and it's cost %d\n", stack_b->content, stack_b->cost);
+        stack_b = stack_b->next;
     }
-    if(i == 1)
-        return(-1);
+
+    // ft_printf(" LOW COST :  %d\n", cost);
     return(tmp);
 }
 void sortingt_list(t_list**a, t_list **b)
@@ -262,12 +265,12 @@ void sortingt_list(t_list**a, t_list **b)
            if (stack_a->median == 0 && stack_b->median == 0)
            {
                 while ((*a)->content != stack_b->target && (*b)->content != stack_b->content)
-                    rr(a, b);
+                    rrr(a, b);
            } 
            else if (stack_a->median == 1 && stack_b->median == 1)
            {
                 while ((*a)->content != stack_b->target && (*b)->content != stack_b->content)
-                    rrr(a, b);
+                    rr(a, b);
            }
            if (stack_a->median == 0)
            {
@@ -282,7 +285,7 @@ void sortingt_list(t_list**a, t_list **b)
                 }
            }
         break;
-        } 
+        }
         stack_a = stack_a->next;
     }
     stack_b = *b;
@@ -305,8 +308,7 @@ void sortingt_list(t_list**a, t_list **b)
 
         stack_b = stack_b->next;
     }
-    pa(a, b);
-        
+    pa(a, b);   
 }
 int is_sorted(t_list **a)
 {
@@ -323,7 +325,27 @@ int is_sorted(t_list **a)
     }
     return 1;
 }
+void    index_value(t_list *stacka)
+{
+    t_list    *current_node;
+    t_list    *compare_node;
+    int        index;
 
+    current_node = stacka;
+    while (current_node != NULL)
+    {
+        compare_node = stacka;
+        index = 0;
+        while (compare_node != NULL)
+        {
+            if (current_node->content > compare_node->content)
+                index++;
+            compare_node = compare_node->next;
+        }
+        current_node->index_value = index;
+        current_node = current_node->next;
+    }
+}
 void stacks(t_list **a, t_list **b)
 {
     int mid_av;
@@ -335,7 +357,7 @@ void stacks(t_list **a, t_list **b)
     mid_av = min_max(a, 0);
     while(ft_lstsize(*a) > 3 && !is_sorted(a))
     {
-        if ((*a)->content < mid_av)
+        if ((*a)->content <= mid_av)
             pb(a,b);
         else
         {
@@ -349,6 +371,8 @@ void stacks(t_list **a, t_list **b)
         indexing(a, b);
         get_target(a, b);
     }
+    // printer(a, 'a', 1);
+    // printer(b, 'b', 1);
     while(ft_lstsize(*b) != 0)
     {
         
@@ -377,7 +401,10 @@ void stacks(t_list **a, t_list **b)
                 rra(a, 1); 
         }
     }
+
         // printer(a, 'a', 1);
         // printer(b, 'b', 1);
 }
+
+
 

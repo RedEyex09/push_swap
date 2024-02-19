@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:35:17 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/18 22:47:26 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:54:52 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_list
 	int				median;
 	int				target;
 	int				cost;
+	int 			index_value;
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
