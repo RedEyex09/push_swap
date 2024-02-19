@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 10:38:46 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/18 22:34:56 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:43:52 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,31 +91,26 @@ int min_max(t_list **a, int i)
         return(min_re);
     if (i == 4)
         return(max_re);
-    return((min + max) / 2);
+    return((max) / 2);
 }
-void sort_three(t_list **stack_a)
+void sort_three(t_list **lst)
 {
-   if ((*stack_a)->content > (*stack_a)->next->next->content
-        && (*stack_a)->content < (*stack_a)->next->content)
-        rra(stack_a, 1);
-    else if ((*stack_a)->content > (*stack_a)->next->next->content
-        && (*stack_a)->next->next->content < (*stack_a)->next->content)
-    {
-        ra(stack_a, 1);
-        sa(stack_a, 1);
-    }
-    else if ((*stack_a)->content > (*stack_a)->next->next->content
-        && (*stack_a)->next->next->content > (*stack_a)->next->content)
-        ra(stack_a, 1);
-    else if ((*stack_a)->content > (*stack_a)->next->content
-        && (*stack_a)->next->next->content > (*stack_a)->content)
-        sa((stack_a), 1);
-    else if ((*stack_a)->next->next->content > (*stack_a)->content
-        && (*stack_a)->next->content > (*stack_a)->next->next->content)
-    {
-        rra(stack_a, 1);
-        sa(stack_a, 1);
-    }
+   if ((*lst)->content < (*lst)->next->content
+        && (*lst)->content < (*lst)->next->next->content
+        && (*lst)->next->content > (*lst)->next->next->content)
+        rra(lst, 1);
+    if ((*lst)->content > (*lst)->next->content
+        && (*lst)->content < (*lst)->next->next->content)
+        sa(lst, 1);
+    if ((*lst)->content > (*lst)->next->content
+        && (*lst)->next->content > (*lst)->next->next->content)
+        sa(lst, 1);
+    if ((*lst)->content < (*lst)->next->content
+        && (*lst)->next->next->content < (*lst)->content)
+        rra(lst, 1);
+    if ((*lst)->content > (*lst)->next->content
+        && (*lst)->next->content < (*lst)->next->next->content)
+        ra(lst, 1);
 } 
 void indexing(t_list **a, t_list **b)
 {
@@ -162,7 +157,7 @@ int cost(t_list **a,int target)
     stack_a = *a;
      while(stack_a)
      {
-        if(stack_a->index == target)
+        if(stack_a->content == target)
             return(stack_a->cost);
         stack_a = stack_a->next;
      }
@@ -217,6 +212,7 @@ void get_target(t_list **a, t_list **b)
         }
         stack_b = stack_b->next;
     }
+    indexing(a, b);
     get_cost(a, b);
 }
 
@@ -262,7 +258,17 @@ void sortingt_list(t_list**a, t_list **b)
     while(stack_a)
     {
         if(stack_b->target == stack_a->content)
-        {      
+        {
+           if (stack_a->median == 0 && stack_b->median == 0)
+           {
+                while ((*a)->content != stack_b->target && (*b)->content != stack_b->content)
+                    rr(a, b);
+           } 
+           else if (stack_a->median == 1 && stack_b->median == 1)
+           {
+                while ((*a)->content != stack_b->target && (*b)->content != stack_b->content)
+                    rrr(a, b);
+           }
            if (stack_a->median == 0)
            {
                 while ((*a)->content != stack_b->target)
@@ -275,7 +281,7 @@ void sortingt_list(t_list**a, t_list **b)
                     ra(a, 1);
                 }
            }
-           break;
+        break;
         } 
         stack_a = stack_a->next;
     }
@@ -286,14 +292,15 @@ void sortingt_list(t_list**a, t_list **b)
           {      
            if (stack_b->median == 0)
            {
-                while(*b != stack_b)
-                    rrb(a, 1);
+                while((*b)->content != tmp_index)
+                    rrb(b, 1);
            }
            else if (stack_b->median == 1)
            {
-              while(*b != stack_b)
-                 rb(a, 1);
+                while((*b)->content != tmp_index)
+                    rb(b, 1);
            }
+           break ;
           } 
 
         stack_b = stack_b->next;
@@ -347,7 +354,11 @@ void stacks(t_list **a, t_list **b)
         
         indexing(a, b);
         get_target(a, b);
+        // indexing(a, b);
         sortingt_list(a, b);
+        // indexing(a, b);
+        // printer(a, 'a', 1);
+        // printer(b, 'b', 1);
      
     }
     if(ft_lstsize(*a) != 3)

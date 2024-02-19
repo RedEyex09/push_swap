@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:35:17 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/17 11:31:28 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/18 22:47:26 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ void	ra(t_list **a, int i);
 void	rra(t_list **a, int i);
 void	rrb(t_list **b, int i);
 void	rrr(t_list **a, t_list **b);
+void sort_three(t_list **lst);
+int is_sorted(t_list **a);
 
 #endif

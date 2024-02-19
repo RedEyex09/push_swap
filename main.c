@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:09:04 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/14 15:53:31 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/19 08:55:07 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,11 @@ void	content(t_arg_chek *num, t_list **head)
 				ft_exit();
 		}
 		k = ft_atoi(num->n[num->j]);
-		if (duplicate(k, *head) || max_check(num->l, k))
+		if (duplicate(k, *head))
 			ft_exit();
 		add_num(head, k);
 		num->j++;
 	}
-	
 }
 
 void	parsing(char **av, t_list **a)
@@ -77,7 +76,14 @@ int	main(int ac, char **av)
 	if (ac >= 2)
 	{
 		parsing(av, &a);
-		stacks(&a, &b);
+		if (ft_lstsize(a) == 3)
+		{
+			 sort_three(&a);
+		}
+		else if (ft_lstsize(a) == 2 && !is_sorted(&a))
+			ra(&a, 1);
+		else
+			stacks(&a, &b);
 		ft_lstclear(&a);
 		ft_lstclear(&b);
 	}
