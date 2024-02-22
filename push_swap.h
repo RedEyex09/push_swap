@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:35:17 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/19 18:46:21 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/22 19:32:13 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct arg_chek
 	int		j;
 	int		l;
 	char	**n;
+	int		min;
+	int		max;
 }	t_arg_chek;
 
 typedef struct s_list
@@ -33,7 +35,7 @@ typedef struct s_list
 	int				median;
 	int				target;
 	int				cost;
-	int 			index_value;
+	int				index_value;
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
@@ -67,7 +69,17 @@ void	ra(t_list **a, int i);
 void	rra(t_list **a, int i);
 void	rrb(t_list **b, int i);
 void	rrr(t_list **a, t_list **b);
-void sort_three(t_list **lst);
-int is_sorted(t_list **a);
+void	sort_three(t_list **lst);
+int		is_sorted(t_list **a);
+void	index_value(t_list *stacka);
+int		is_sorted(t_list **a);
+int		low_cost_index(t_list **b);
+void	indexer(t_list **m);
+void	indexing(t_list **a, t_list **b);
+int		cost(t_list **a, int target);
+void	get_cost(t_list **a, t_list **b);
+void	get_target(t_list **a, t_list **b);
+int		min_max(t_list **a, int i);
+void	sort_three(t_list **lst);
 
 #endif
