@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:39:23 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/10 09:17:07 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:38:22 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	*ft_free_double(char **str)
 
 void	ft_exit(void)
 {
-	ft_printf("Error\n");
-	exit(0);
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
 }
 
 int	ft_pn(char c)
