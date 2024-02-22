@@ -5,7 +5,8 @@ LIBS = ./libs/ft_printf/libftprintf.a ./libs/libft/libft.a \
 	#    ./libs/get_next_line/get_next_line.c ./libs/get_next_line/get_next_line_utils.c\
 
 SRCS = 	main.c utils.c utils2.c linked.c linked2.c operations.c\
-		push.c switch.c rotate.c reverse_rotate.c indexers.c coster.c
+		push.c switch.c rotate.c reverse_rotate.c indexers.c coster.c\
+		sorter.c
 
 # SRCS_BONUS = 
 	

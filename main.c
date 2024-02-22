@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:09:04 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/20 15:06:42 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:24:00 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,24 +56,20 @@ void	parsing(char **av, t_list **a)
 		ft_free_double(num.n);
 	}
 }
-// void f(void)
-// {
-// 	system("leaks push_swap");
-// }
+
 int	main(int ac, char **av)
 {
-	t_list *a;
-	t_list *b;
-	
+	t_list	*a;
+	t_list	*b;
+
 	a = NULL;
 	b = NULL;
-	// atexit(f);
 	if (ac >= 2)
 	{
 		parsing(av, &a);
 		if (ft_lstsize(a) == 3)
 		{
-			 sort_three(&a);
+			sort_three(&a);
 		}
 		else if (ft_lstsize(a) == 2 && !is_sorted(&a))
 			ra(&a, 1);
@@ -83,6 +79,3 @@ int	main(int ac, char **av)
 		ft_lstclear(&b);
 	}
 }
-
-
-

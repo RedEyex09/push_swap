@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:35:17 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/22 19:32:13 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:06:05 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,7 @@ void	get_cost(t_list **a, t_list **b);
 void	get_target(t_list **a, t_list **b);
 int		min_max(t_list **a, int i);
 void	sort_three(t_list **lst);
+void	sort_b(t_list **b, t_list *stack_b, int tmp_index);
+void	sort_a(t_list **a, t_list **b, t_list *stack_b);
 
 #endif
