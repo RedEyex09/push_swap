@@ -34,7 +34,7 @@ void is_valid(t_list **a, t_list **b, char *rule)
         rra(a, 0);
     else if(ft_strncmp(rule, "rrb\n", 3) == 0)
         rrb(a, 0);
-    else if(ft_strncmp(rule, "sa\n", 3) == 0)
+    else if(ft_strncmp(rule, "rrr\n", 3) == 0)
         rrr(a, b, 0);
     else
        ft_exit();   
