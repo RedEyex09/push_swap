@@ -16,6 +16,8 @@ int	is_sorted(t_list **a)
 {
 	t_list	*stack_a;
 
+	if(!(*a))
+		return (0);
 	stack_a = *a;
 	while (stack_a && stack_a->next)
 	{
