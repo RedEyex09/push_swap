@@ -46,11 +46,8 @@ void	rrb(t_list **b, int i)
 
 void	rrr(t_list **a, t_list **b, int i)
 {
-	if (*a && *b)
-	{
 		rra(a, 0);
 		rrb(b, 0);
-	}
 	if (i == 1)
 		ft_printf("rrr\n");
 }
