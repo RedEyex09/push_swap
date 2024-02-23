@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:42:54 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/14 11:43:10 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:57:20 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,13 @@ void	rb(t_list **b, int i)
 		ft_printf("rb\n");
 }
 
-void	rr(t_list **a, t_list **b)
+void	rr(t_list **a, t_list **b, int i)
 {
 	if (*a && *b)
 	{
 		ra(a, 0);
 		rb(b, 0);
-		ft_printf("rr\n");
 	}
+	if ( i == 1)
+		ft_printf("rr\n");
 }

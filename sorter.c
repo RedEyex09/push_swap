@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 19:28:41 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/22 20:16:39 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:58:16 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ void	sort_a(t_list **a, t_list **b, t_list *stack_b)
 				&& (*b)->content != stack_b->content)
 			{
 				if (stack_a->median == 0 && stack_b->median == 0)
-					rrr(a, b);
+					rrr(a, b, 1);
 				else if (stack_a->median == 1 && stack_b->median == 1)
-					rr(a, b);
+					rr(a, b, 1);
 				else
 					break ;
 			}

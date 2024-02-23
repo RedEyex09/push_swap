@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:24:57 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/14 11:40:07 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:54:33 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,18 @@ void	push(t_list **a, t_list **b)
 	ft_lstadd_front(b, new);
 }
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_list **a, t_list **b, int i)
 {
 	if (*b)
-	{
 		push(b, a);
+	if (i == 1)
 		ft_printf("pa\n");
-	}
 }
 
-void	pb(t_list **a, t_list **b)
+void	pb(t_list **a, t_list **b, int i)
 {
 	if (*a)
-	{
 		push(a, b);
+	if (i == 1)
 		ft_printf("pb\n");
-	}
 }

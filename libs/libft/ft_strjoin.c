@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:13:18 by hel-magh          #+#    #+#             */
-/*   Updated: 2023/11/25 10:56:44 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:19:28 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		return (NULL);
 	i = 0;
 	j = 0;
-	ss = (char *) malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	ss = (char *)(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (ss == NULL)
 		return (NULL);
 	while (s1[i])
