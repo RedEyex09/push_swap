@@ -43,11 +43,8 @@ void	rb(t_list **b, int i)
 
 void	rr(t_list **a, t_list **b, int i)
 {
-	if (*a && *b)
-	{
-		ra(a, 0);
-		rb(b, 0);
-	}
+	ra(a, 0);
+	rb(b, 0);
 	if ( i == 1)
 		ft_printf("rr\n");
 }
