@@ -48,11 +48,9 @@ void	sb(t_list **b, int i)
 
 void	ss(t_list **a, t_list **b, int i)
 {
-	if (*a && *b)
-	{
-		sa(a, 0);
-		sb(b, 0);
-	}
+
+	sa(a, 0);
+	sb(b, 0);
 	if (i == 1)
 		ft_printf("ss\n");
 }
