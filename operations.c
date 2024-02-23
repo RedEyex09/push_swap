@@ -14,11 +14,10 @@
 
 void	sortingt_list(t_list**a, t_list **b)
 {
-	t_list	*stack_a;
+
 	t_list	*stack_b;
 	int		tmp_index;
 
-	stack_a = *a;
 	stack_b = *b;
 	tmp_index = low_cost_index(b);
 	while (stack_b && stack_b->content != tmp_index && stack_b->next)
