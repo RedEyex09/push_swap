@@ -6,14 +6,15 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:20:01 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/24 12:54:20 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/24 14:34:36 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	entry_validation(char *rule, t_list **a, t_list **b)
+void	entry_validation(char *rule, t_list **a)
 {
+
 	if ((!ft_strncmp(rule, "pa\n", 3)) || (!ft_strncmp(rule, "pb\n", 3))
 		|| (!ft_strncmp(rule, "ss\n", 3)) || (!ft_strncmp(rule, "sa\n", 3))
 		|| (!ft_strncmp(rule, "sb\n", 3)) || (!ft_strncmp(rule, "rr\n", 3))
@@ -63,7 +64,7 @@ void	ft_exit_cheker(t_list **a)
 	ft_exit();
 }
 
-char	*ft_buffer_fill(t_list **a, t_list **b)
+char	*ft_buffer_fill(t_list **a)
 {
 	char	*line;
 	char	*tmp;
@@ -84,7 +85,7 @@ char	*ft_buffer_fill(t_list **a, t_list **b)
 		line = ft_strjoin(tmp, s);
 		free(tmp);
 		tmp = NULL;
-		entry_validation(s, a, b);
+		entry_validation(s, a);
 		free(s);
 		s = get_next_line(0);
 	}
@@ -98,7 +99,7 @@ void	ft_reader(t_list **a, t_list **b)
 	int		i;
 
 	i = 0;
-	line = ft_buffer_fill(a, b);
+	line = ft_buffer_fill(a);
 	buffer = ft_split(line, '\n');
 	if (!buffer)
 	{
@@ -112,6 +113,7 @@ void	ft_reader(t_list **a, t_list **b)
 		free(buffer[i]);
 		i++;
 	}
+	// ft_lstclear(b);
 	free(buffer);
 	free(line);
 }

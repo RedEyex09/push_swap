@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 19:28:41 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/24 11:22:01 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/24 15:44:38 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	sort_a(t_list **a, t_list **b, t_list *stack_b)
 	stack_a = *a;
 	while (stack_a)
 	{
-		if (stack_b->target == stack_a->content)
+		if (stack_b->target == stack_a->content && stack_a != *a)
 		{
 			while ((*a)->content != stack_b->target
 				&& (*b)->content != stack_b->content)

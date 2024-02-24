@@ -33,7 +33,7 @@ ${NAME}: ${OBJS}
 	@echo "<< Compiling $(NAME) is  Finished >>"
 
 
-bonus: lib_compile ${NAME_BONUS} 
+bonus: ${NAME_BONUS} 
 
 ${NAME_BONUS}: ${OBJS_BONUS}
 	@echo "Compiling $(NAME_BONUS)..."

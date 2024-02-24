@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 19:05:29 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/22 19:27:28 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/24 15:48:29 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,9 @@ int	min_max(t_list **a, int i)
 	mm = *a;
 	while (mm)
 	{
-		if (!v.min || v.min > mm->content)
+		if (v.min > mm->content)
 			v.min = mm->content;
-		if (!v.max || v.max < mm->content)
+		if (v.max < mm->content)
 			v.max = mm->content;
 		mm = mm->next;
 		v.j++;
