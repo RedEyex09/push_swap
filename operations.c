@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 10:38:46 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/23 18:55:35 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/24 11:44:17 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	sortingt_list(t_list**a, t_list **b)
 {
-
 	t_list	*stack_b;
 	int		tmp_index;
 

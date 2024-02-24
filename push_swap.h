@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:35:17 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/23 18:57:43 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/24 11:41:16 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ void	sort_three(t_list **lst);
 void	sort_b(t_list **b, t_list *stack_b, int tmp_index);
 void	sort_a(t_list **a, t_list **b, t_list *stack_b);
 void	is_valid(t_list **a, t_list **b, char *rule);
+void	ft_reader(t_list **a, t_list **b);
 
 #endif

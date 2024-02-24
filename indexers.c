@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 18:55:31 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/23 20:44:14 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/24 12:25:12 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	index_value(t_list *stacka)
 		current_node->index_value = index;
 		current_node = current_node->next;
 	}
-	
 }
 
 int	is_sorted(t_list **a)

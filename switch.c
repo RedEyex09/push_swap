@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:07:18 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/23 18:56:22 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/24 11:44:28 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	sb(t_list **b, int i)
 
 void	ss(t_list **a, t_list **b, int i)
 {
-
 	sa(a, 0);
 	sb(b, 0);
 	if (i == 1)

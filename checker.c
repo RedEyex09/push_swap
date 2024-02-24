@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:22:00 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/23 21:37:56 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/24 11:02:41 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	is_sorted(t_list **a)
 {
 	t_list	*stack_a;
 
-	if(!(*a))
+	if (!(*a))
 		return (0);
 	stack_a = *a;
 	while (stack_a && stack_a->next)
@@ -78,31 +78,17 @@ int	main(int ac, char **av)
 {
 	t_list	*a;
 	t_list	*b;
-    char    *s;
+
 	a = NULL;
 	b = NULL;
-
 	if (ac >= 2)
 	{
 		parsing(av, &a);
-        if (is_sorted(&a))
-        {
-            ft_printf("OK\n");
-            ft_lstclear(&a);
-            exit(0);
-        }
-		s = get_next_line(0);
-        if(!s || ft_strncmp(s, "\n", 1) == 0)
-            ft_exit();
-        while(s)
-        {
-            is_valid(&a, &b, s);
-            s = get_next_line(0);
-        }
-        if (is_sorted(&a))
-            ft_printf("OK\n");
-        else if (!is_sorted(&a))
-            ft_printf("KO\n");
+		ft_reader(&a, &b);
+		if (is_sorted(&a) && !b)
+			ft_printf("OK\n");
+		else
+			ft_printf("KO\n");
 		ft_lstclear(&a);
 		ft_lstclear(&b);
 	}
