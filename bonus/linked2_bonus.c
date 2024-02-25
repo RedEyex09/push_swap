@@ -1,46 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   linked2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 12:24:57 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/25 10:23:37 by hel-magh         ###   ########.fr       */
+/*   Created: 2024/02/10 09:22:32 by hel-magh          #+#    #+#             */
+/*   Updated: 2024/02/25 09:18:00 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	push(t_list **a, t_list **b)
+void	ft_lstclear(t_list **lst)
 {
-	t_list	*new;
+	t_list	*tmp;
 
-	new = *a;
-	*a = (*a)->next;
-	if (*a)
-		(*a)->prev = NULL;
-	new->next = NULL;
-	new->prev = NULL;
-	if (*b)
-		(*b)->prev = new;
-	ft_lstadd_front(b, new);
+	if (lst == NULL)
+		return ;
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst);
+		*lst = tmp;
+	}
+	free(*lst);
+	*lst = NULL;
 }
 
-void	pa(t_list **a, t_list **b)
+int	ft_lstsize(t_list *lst)
 {
-	if (*b)
-	{
-		push(b, a);
-		ft_printf("pa\n");
-	}
-}
+	int	size;
 
-void	pb(t_list **a, t_list **b)
-{
-	if (*a)
+	size = 0;
+	if (lst == NULL)
+		return (0);
+	while (lst)
 	{
-		push(a, b);
-		ft_printf("pb\n");
+		lst = lst->next;
+		size++;
 	}
+	return (size);
 }

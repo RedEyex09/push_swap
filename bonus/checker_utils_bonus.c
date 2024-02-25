@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_utils.c                                    :+:      :+:    :+:   */
+/*   checker_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:20:01 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/24 14:34:36 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/25 11:01:31 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	entry_validation(char *rule, t_list **a)
 {
-
 	if ((!ft_strncmp(rule, "pa\n", 3)) || (!ft_strncmp(rule, "pb\n", 3))
 		|| (!ft_strncmp(rule, "ss\n", 3)) || (!ft_strncmp(rule, "sa\n", 3))
 		|| (!ft_strncmp(rule, "sb\n", 3)) || (!ft_strncmp(rule, "rr\n", 3))
@@ -113,7 +112,6 @@ void	ft_reader(t_list **a, t_list **b)
 		free(buffer[i]);
 		i++;
 	}
-	// ft_lstclear(b);
 	free(buffer);
 	free(line);
 }

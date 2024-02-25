@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorter.c                                           :+:      :+:    :+:   */
+/*   sorter_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 19:28:41 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/25 10:24:27 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/25 09:19:08 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	sort_three(t_list **lst)
 {
@@ -79,9 +79,9 @@ void	sort_a(t_list **a, t_list **b, t_list *stack_b)
 				&& (*b)->content != stack_b->content)
 			{
 				if (stack_a->median == 0 && stack_b->median == 0)
-					rrr(a, b);
+					rrr(a, b, 1);
 				else if (stack_a->median == 1 && stack_b->median == 1)
-					rr(a, b);
+					rr(a, b, 1);
 				else
 					break ;
 			}

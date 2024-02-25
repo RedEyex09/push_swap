@@ -8,8 +8,8 @@ SRCS = 	main.c utils.c utils2.c linked.c linked2.c operations.c\
 		push.c switch.c rotate.c reverse_rotate.c indexers.c coster.c\
 		sorter.c 
 
-SRCS_BONUS = checker.c utils.c utils2.c linked.c linked2.c checker_utils.c \
-			 push.c switch.c rotate.c reverse_rotate.c\
+SRCS_BONUS = ./bonus/checker_bonus.c ./bonus/utils_bonus.c ./bonus/utils2_bonus.c ./bonus/linked_bonus.c ./bonus/linked2_bonus.c\
+			./bonus/checker_utils_bonus.c ./bonus/push_bonus.c ./bonus/switch_bonus.c ./bonus/rotate_bonus.c ./bonus/reverse_rotate_bonus.c\
 			 ./libs/get_next_line/get_next_line.c ./libs/get_next_line/get_next_line_utils.c\
 	
 OBJS = ${SRCS:.c=.o}
@@ -25,6 +25,7 @@ lib_compile:
 	@cd ./libs/ft_printf && make
 
 %.o: %.c push_swap.h
+	@echo "compiling Files"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 ${NAME}: ${OBJS}
@@ -33,12 +34,17 @@ ${NAME}: ${OBJS}
 	@echo "<< Compiling $(NAME) is  Finished >>"
 
 
-bonus: ${NAME_BONUS} 
+bonus: lib_compile ${NAME_BONUS}
+
+${OBJS_BONUS}: %.o: %.c ./bonus/push_swap_bonus.h
+	@echo "Compiling $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 ${NAME_BONUS}: ${OBJS_BONUS}
 	@echo "Compiling $(NAME_BONUS)..."
 	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBS) -o $(NAME_BONUS)
 	@echo "<< Compiling $(NAME_BONUS) Bonus Finished >>"
+
 
 clean:
 	@echo "Start removing .. "

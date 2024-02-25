@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 19:05:29 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/24 15:48:29 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/25 10:42:45 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ int	min_max(t_list **a, int i)
 
 	ft_memset(&v, 0, sizeof(v));
 	mm = *a;
+	v.min = INT_MAX;
+	v.max = INT_MIN;
 	while (mm)
 	{
 		if (v.min > mm->content)

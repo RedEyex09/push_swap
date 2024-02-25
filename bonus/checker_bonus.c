@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:22:00 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/24 14:37:51 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/25 11:01:11 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	is_sorted(t_list **a)
 {
@@ -90,6 +90,6 @@ int	main(int ac, char **av)
 		else
 			ft_printf("KO\n");
 		ft_lstclear(&a);
-		// ft_lstclear(&b);
+		ft_lstclear(&b);
 	}
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:39:23 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/10 09:17:07 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/25 09:19:27 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	ft_free(char *str)
 {
@@ -37,8 +37,8 @@ void	*ft_free_double(char **str)
 
 void	ft_exit(void)
 {
-	ft_printf("Error\n");
-	exit(0);
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
 }
 
 int	ft_pn(char c)

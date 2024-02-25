@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 10:38:46 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/24 15:44:56 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/25 10:38:16 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ void	first_steps(t_list **a, t_list **b)
 	while (ft_lstsize(*a) > 3)
 	{
 		if ((*a)->index_value <= mid_av)
-			pb(a, b, 1);
+			pb(a, b);
 		else
 		{
-			pb(a, b, 1);
+			pb(a, b);
 			rb(b, 1);
 		}
 	}
@@ -83,7 +83,7 @@ void	stacks(t_list **a, t_list **b)
 		get_target(a, b);
 		get_cost(a, b);
 		sortingt_list(a, b);
-		pa(a, b, 1);
+		pa(a, b);
 	}
 	finisher(a, b);
 }

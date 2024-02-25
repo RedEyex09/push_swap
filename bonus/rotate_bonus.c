@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 16:28:12 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/19 10:30:53 by hel-magh         ###   ########.fr       */
+/*   Created: 2024/02/13 15:42:54 by hel-magh          #+#    #+#             */
+/*   Updated: 2024/02/25 09:19:01 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	reverse_rotate(t_list **stack)
+void	rotate(t_list **stack)
 {
 	t_list	*temp1;
 	t_list	*temp2;
@@ -21,35 +21,30 @@ void	reverse_rotate(t_list **stack)
 		return ;
 	temp1 = *stack;
 	temp2 = ft_lstlast(*stack);
-	temp2->next = temp1;
-	temp2->prev->next = NULL;
-	temp2->prev = NULL;
-	temp1->prev = temp2;
-	*stack = temp2;
+	(*stack) = (*stack)->next;
+	ft_lstadd_back(&temp2, temp1);
 }
 
-void	rra(t_list **a, int i)
+void	ra(t_list **a, int i)
 {
-	if (*a)
-		reverse_rotate(a);
+	if (*a && (*a)->next != NULL)
+		rotate(a);
+	if (i == 1 && (*a)->next != NULL)
+		ft_printf("ra\n");
+}
+
+void	rb(t_list **b, int i)
+{
+	if (*b && (*b)->next != NULL)
+		rotate(b);
+	if (i == 1 && (*b)->next != NULL)
+		ft_printf("rb\n");
+}
+
+void	rr(t_list **a, t_list **b, int i)
+{
+	ra(a, 0);
+	rb(b, 0);
 	if (i == 1)
-		ft_printf("rra\n");
-}
-
-void	rrb(t_list **b, int i)
-{
-	if (*b)
-		reverse_rotate(b);
-	if (i == 1)
-		ft_printf("rrb\n");
-}
-
-void	rrr(t_list **a, t_list **b)
-{
-	if (*a && *b)
-	{
-		rra(a, 0);
-		rrb(b, 0);
-		ft_printf("rrr\n");
-	}
+		ft_printf("rr\n");
 }

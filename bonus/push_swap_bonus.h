@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:35:17 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/25 10:52:36 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/25 11:00:05 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
-# include "./libs/ft_printf/ft_printf.h"
-# include "./libs/libft/libft.h"
-# include "./libs/get_next_line/get_next_line.h"
+# include "../libs/ft_printf/ft_printf.h"
+# include "../libs/libft/libft.h"
+# include "../libs/get_next_line/get_next_line.h"
 # include <fcntl.h>
 # include <limits.h>
 
@@ -59,17 +59,17 @@ void	empty(t_arg_chek *num, char **av);
 int		max_check(int i, long long k);
 void	stacks(t_list **a, t_list **b);
 void	push(t_list **a, t_list **b);
-void	pa(t_list **a, t_list **b);
-void	pb(t_list **a, t_list **b);
-void	ss(t_list **a, t_list **b);
+void	pa(t_list **a, t_list **b, int i);
+void	pb(t_list **a, t_list **b, int i);
+void	ss(t_list **a, t_list **b, int i);
 void	sb(t_list **b, int i);
 void	sa(t_list **a, int i);
-void	rr(t_list **a, t_list **b);
+void	rr(t_list **a, t_list **b, int i);
 void	rb(t_list **b, int i);
 void	ra(t_list **a, int i);
 void	rra(t_list **a, int i);
 void	rrb(t_list **b, int i);
-void	rrr(t_list **a, t_list **b);
+void	rrr(t_list **a, t_list **b, int i);
 void	sort_three(t_list **lst);
 int		is_sorted(t_list **a);
 void	index_value(t_list *stacka);
