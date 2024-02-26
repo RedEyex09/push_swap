@@ -6,7 +6,7 @@
 /*   By: hel-magh <hel-magh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:09:04 by hel-magh          #+#    #+#             */
-/*   Updated: 2024/02/24 11:41:08 by hel-magh         ###   ########.fr       */
+/*   Updated: 2024/02/25 11:48:59 by hel-magh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,7 @@ int	main(int ac, char **av)
 	{
 		parsing(av, &a);
 		if (ft_lstsize(a) == 3)
-		{
 			sort_three(&a);
-		}
 		else if (ft_lstsize(a) == 2 && !is_sorted(&a))
 			ra(&a, 1);
 		else

@@ -19,20 +19,23 @@ LIBC = ar rc
 RM = rm -f
 
 %.o: %.c libft.h
-	${CC} ${CFLAGS} -c $< -o  ${<:.c=.o}
+	@${CC} ${CFLAGS} -c $< -o  ${<:.c=.o}
 
 ${NAME}: ${OBJS}
-	${LIBC} ${NAME} ${OBJS}
+	@${LIBC} ${NAME} ${OBJS}
 
 all: ${NAME}
 
 
 	
 clean:
-	${RM} ${OBJS} 
+	@${RM} ${OBJS}
+	@echo "Removing..."
 
 fclean: clean
-	${RM} ${NAME} 
+	@${RM} ${NAME}
+	@echo "Removing..."
+
 
 re: fclean all
 

@@ -25,7 +25,7 @@ lib_compile:
 	@cd ./libs/ft_printf && make
 
 %.o: %.c push_swap.h
-	@echo "compiling Files"
+	@echo "compiling Files" 
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 ${NAME}: ${OBJS}
@@ -37,7 +37,7 @@ ${NAME}: ${OBJS}
 bonus: lib_compile ${NAME_BONUS}
 
 ${OBJS_BONUS}: %.o: %.c ./bonus/push_swap_bonus.h
-	@echo "Compiling $<"
+	@echo "compiling Files" 
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 ${NAME_BONUS}: ${OBJS_BONUS}
